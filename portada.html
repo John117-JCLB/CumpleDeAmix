@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Sasha</title>
+
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- PORTADA -->
+<!-- ========================= -->
+
+<section id="inicio">
+
+    <div class="contenido">
+
+        <h1>🎉 Feliz Cumpleaños, Sasha 🎉</h1>
+
+        <p>
+            Hoy quería regalarte algo diferente.
+        </p>
+
+        <p>
+            No es un gran regalo, pero está lleno de recuerdos,
+            momentos y palabras que quería compartir contigo.
+        </p>
+
+        <h2>✨ Entra, aquí está tu sorpresa ✨</h2>
+
+        <button id="btnEntrar">
+            🎁 Entrar
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- BIENVENIDA -->
+<!-- ========================= -->
+
+<section id="sorpresa" style="display:none;">
+
+    <div class="contenido">
+
+        <h1>💖 Bienvenida Sasha 💖</h1>
+
+        <p>
+            Gracias por entrar.
+        </p>
+
+        <p>
+            Hay algunos recuerdos y mensajes que quiero compartir contigo.
+        </p>
+
+        <button id="btnContinuar">
+            ✨ Descubrir
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- CARTAS -->
+<!-- ========================= -->
+
+<section id="recuerdos" style="display:none;">
+
+    <div class="contenido">
+
+        <h1>💌 Tus sorpresas</h1>
+
+        <p>
+            Haz clic en cada carta para descubrir un recuerdo especial.
+        </p>
+
+        <div class="cajas">
+
+            <div class="caja" onclick="abrirCaja(1)">
+                💌 Carta #1
+            </div>
+
+            <div class="caja" onclick="abrirCaja(2)">
+                💌 Carta #2
+            </div>
+
+            <div class="caja" onclick="abrirCaja(3)">
+                💌 Carta #3
+            </div>
+
+            <div class="caja" onclick="abrirCaja(4)">
+                💖 Carta Especial
+            </div>
+
+        </div>
+
+        <p id="progresoCartas">
+            Recuerdos descubiertos: 0/3
+        </p>
+
+        <div id="continuarContainer" style="display:none;">
+
+            <button id="btnContinuarFrases">
+                ✨ Continuar
+            </button>
+
+        </div>
+
+        <div id="modalFoto" class="modal">
+
+            <div class="modal-contenido">
+
+        <span class="cerrar" onclick="cerrarModal()">
+            ✖
+        </span>
+
+                <img id="imagenModal" src="" alt="">
+
+                <p id="fraseModal"></p>
+
+                <div class="controles">
+
+                    <button onclick="anteriorFoto()">
+                        ⬅
+                    </button>
+
+                    <span id="contadorFoto"></span>
+
+                    <button onclick="siguienteFoto()">
+                        ➡
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- FRASES VOLTEABLES -->
+<!-- ========================= -->
+
+<section id="frases" style="display:none;">
+
+    <div class="contenido">
+
+        <h1>✨ Algunas palabras para ti ✨</h1>
+
+        <div class="contenedor-tarjetas">
+
+            <div class="tarjeta-flip"
+                 data-id="0"
+                 onclick="voltearTarjeta(this)">
+
+                <div class="tarjeta-interna">
+
+                    <div class="frente">
+                        ❤️ Frase 1
+                    </div>
+
+                    <div class="detras">
+                        Gracias por existir ❤️
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="tarjeta-flip"
+                 data-id="1"
+                 onclick="voltearTarjeta(this)">
+
+                <div class="tarjeta-interna">
+
+                    <div class="frente">
+                        ✨ Frase 2
+                    </div>
+
+                    <div class="detras">
+                        Tu sonrisa mejora cualquier día.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="tarjeta-flip"
+                 data-id="2"
+                 onclick="voltearTarjeta(this)">
+
+                <div class="tarjeta-interna">
+
+                    <div class="frente">
+                        🌸 Frase 3
+                    </div>
+
+                    <div class="detras">
+                        Nunca cambies tu forma de ser.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="tarjeta-flip"
+                 data-id="3"
+                 onclick="voltearTarjeta(this)">
+
+                <div class="tarjeta-interna">
+
+                    <div class="frente">
+                        💖 Frase 4
+                    </div>
+
+                    <div class="detras">
+                        El mundo es mejor contigo en él.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="continuarCualidades"
+             style="display:none; margin-top:30px;">
+
+            <button id="btnCualidades">
+                ❤️ Continuar
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- CUALIDADES -->
+<!-- ========================= -->
+
+<section id="cualidades" style="display:none;">
+
+    <div class="contenido">
+
+        <h1>❤️ Lo que pienso de ti ❤️</h1>
+
+        <p>
+            Hay algunas cosas que admiro mucho de ti.
+        </p>
+
+        <div class="tarjetas-cualidades">
+
+            <div class="cualidad"
+                 onclick="mostrarCualidad('amable')">
+                ❤️ Amable
+            </div>
+
+            <div class="cualidad"
+                 onclick="mostrarCualidad('inteligente')">
+                🌟 Inteligente
+            </div>
+
+            <div class="cualidad"
+                 onclick="mostrarCualidad('divertida')">
+                😄 Divertida
+            </div>
+
+            <div class="cualidad"
+                 onclick="mostrarCualidad('determinada')">
+                🎯 Determinada
+            </div>
+
+        </div>
+
+        <div id="textoCualidad"></div>
+
+        <div id="continuarCarta"
+             style="display:none; margin-top:30px;">
+
+            <button id="btnCartaFinal">
+                💌 Última sorpresa
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- CARTA FINAL -->
+<!-- ========================= -->
+
+<section id="cartaFinal" style="display:none;">
+
+    <div class="contenido">
+
+        <h1>💌 Para Sasha 💌</h1>
+
+        <p>
+            Llegaste hasta el final de esta pequeña sorpresa.
+        </p>
+
+        <p>
+            Quería hacer algo diferente para tu cumpleaños,
+            algo que pudiera guardar recuerdos y palabras
+            que tal vez no siempre digo.
+        </p>
+
+        <p>
+            Gracias por todos los momentos compartidos,
+            por las risas, las conversaciones y por ser
+            una persona tan especial.
+        </p>
+
+        <p>
+            Espero que este nuevo año de vida te traiga
+            mucha felicidad, sueños cumplidos y momentos
+            inolvidables.
+        </p>
+
+        <h2>
+            🎂 Feliz Cumpleaños Sasha ❤️
+        </h2>
+
+        <button id="btnConfeti">
+            🎉 Felicidades 🎉
+        </button>
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- MÚSICA -->
+<!-- ========================= -->
+
+<audio id="musica" loop>
+    <source src="audio/Ed Sheeran - Perfect.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="js/funciones.js"></script>
+
+</body>
+
+</html>
